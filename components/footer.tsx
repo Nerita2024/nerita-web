@@ -26,7 +26,7 @@ export const Footer = () => {
         </h1>
 
         <p className="my-5 text-center text-white-200 md:mt-10">
-          Reach out to me today and let&apos;s discuss how I can help your
+          Reach out to us today and let&apos;s discuss how We can help 
           achieve your goals.
         </p>
 
@@ -48,18 +48,20 @@ export const Footer = () => {
       <div className="relative z-[999] mt-16 flex flex-col items-center justify-between md:flex-row">
         <p className="text-sm font-light md:text-base md:font-normal">
           Copyright &copy; {new Date().getFullYear()}{" "}
-          <Link
+          {/*<Link
             href="https://sanidhy.me"
             target="_blank"
             rel="noreferrer noopener"
             className="text-purple"
-          >
-            Sanidhya
+          >*/}
+            Nerita, a.s.
+             {/*
           </Link>{" "}
           |{" "}
           <Link href={links.sourceCode} className="underline">
             Source Code
           </Link>
+          */}
         </p>
 
         <div className="flex items-center gap-6 md:gap-3">
