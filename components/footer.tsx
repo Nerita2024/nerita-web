@@ -62,6 +62,16 @@ export const Footer = () => {
             Source Code
           </Link>
           */}
+          <br />
+          <br />
+          Address: Panská 9, 811 01 Bratislava, Slovakia 
+          <br />
+          Phone: +421 911 065 505
+          <br />
+          IČO: 50 308 891
+          <br />
+         
+
         </p>
 
         <div className="flex items-center gap-6 md:gap-3">

@@ -1,5 +1,5 @@
 {
-  "name": "next-portfolio",
+  "name": "nerita-web",
   "version": "1.0.1",
   "private": true,
   "scripts": {
@@ -9,11 +9,11 @@
     "lint": "next lint"
   },
   "author": {
-    "name": "Sanidhya Kumar Verma",
-    "email": "sanidhya.verma12345@gmail.com",
-    "url": "https://github.com/sanidhyy"
+    "name": "Marian Stancik",
+    "email": "mstancik@nerita.eu",
+    "url": "https://github.com/Abra7abra7"
   },
-  "description": "Modern & Minimalist Next.js Portfolio.",
+  "description": "Modern & Minimalist Next.js Nertita web.",
   "keywords": [
     "reactjs",
     "nextjs",
@@ -57,23 +57,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sanidhyy/next-portfolio.git"
+    "url": "https://github.com/Abra7abra7/nerita-web.git"
   },
-  "homepage": "https://github.com/sanidhyy/next-portfolio#readme",
-  "bugs": {
-    "url": "https://github.com/sanidhyy/next-portfolio/issues",
-    "email": "sanidhya.verma12345@gmail.com"
-  },
-  "funding": [
-    {
-      "type": "patreon",
-      "url": "https://www.patreon.com/sanidhy"
-    },
-    {
-      "type": "Buy me a coffee",
-      "url": "https://www.buymeacoffee.com/sanidhy"
-    }
-  ],
+  "homepage": "https://github.com/Abra7abra7/nerita-web#readme",
+ 
+ 
   "dependencies": {
     "@react-three/drei": "^9.105.6",
     "@react-three/fiber": "^8.16.6",
