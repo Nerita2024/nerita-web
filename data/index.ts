@@ -1,7 +1,5 @@
 "use client";
 
-import { links } from "@/config";
-
 import IconUser  from '../public/user.png';
 import IconExperience  from '../public/experience.png';
 import IconTestimonials  from '../public/testimonials.png';
@@ -18,7 +16,7 @@ export const useNav = () =>{
     { name: t("nav.contact"), link: "#footer", icon: IconContact },
   ]
 }
-;
+
 
 export const useNavItems = () => {
   const { t } = useTranslation();
@@ -209,31 +207,31 @@ export const technologies = [
     nameImg: "/es-logo.svg",
   },
   {
-    id: 5,
+    id: 6,
     name: "digital-ocean",
     img: "/digital-ocean-logo.svg",
     nameImg: "/digital-ocean-logo.svg",
   },
   {
-    id: 5,
+    id: 7,
     name: "laravel",
     img: "/laravel-logo.svg",
     nameImg: "/laravel-logo.svg",
   },
   {
-    id: 5,
+    id: 8,
     name: "aws",
     img: "/aws-logo(2).png",
     nameImg: "/aws-logo.svg",
   },
   {
-    id: 5,
+    id: 9,
     name: "tailwind",
     img: "/tailwind-logo.svg",
     nameImg: "/tailwind-logo.svg",
   },
   {
-    id: 5,
+    id: 10,
     name: "nodejs",
     img: "/nodejs-logo.svg",
     nameImg: "/nodejs-logo.svg",

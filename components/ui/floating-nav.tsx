@@ -4,17 +4,17 @@ import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { navItems } from "@/data";
+import { useNav } from "@/data";
 import { cn } from "@/lib/utils";
 import i18n from '../../i18n';
 import Image from 'next/image';
 
 type FloatingNavProps = {
-  navItems: typeof navItems;
   className?: string;
 };
 
-export const FloatingNav = ({ navItems, className }: FloatingNavProps) => {
+export const FloatingNav = ({ className }: FloatingNavProps) => {
+  const navItems = useNav(); // Moved useNav hook inside the component
   const { scrollY } = useScroll();
   const router = useRouter();
 
@@ -79,7 +79,7 @@ export const FloatingNav = ({ navItems, className }: FloatingNavProps) => {
             <span className="block sm:hidden">
               <Image
                 src={navItem.icon}
-                alt={`icon-${navItem.name}`}
+                alt={`icon-${navItem.link}`}
                 width={20}
                 height={20}
                 className="h-4 w-4"
