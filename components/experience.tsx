@@ -1,5 +1,6 @@
 "use client"; // Mark this as a Client Component
 
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
 
@@ -17,9 +18,18 @@ interface ExperienceItem {
 
 export const Experience = () => {
   const router = useRouter();
-  const workExperience = useWorkExperience() 
+  const workExperience = useWorkExperience();
 
-  const { t } = useTranslation();
+  const { t, ready } = useTranslation();
+  const [title1, setTitle1] = useState<string>("");
+  const [title2, setTitle2] = useState<string>("");
+
+  useEffect(() => {
+    if (ready) {
+      setTitle1(t("workExperience.title-1"));
+      setTitle2(t("workExperience.title-2"));
+    }
+  }, [t, ready]);
 
   const handleButtonClick = (experience: ExperienceItem) => {
     const query = new URLSearchParams({
@@ -35,7 +45,7 @@ export const Experience = () => {
   return (
     <section id="experience" className="py-20">
       <h1 className="heading">
-        {t("workExperience.title-1")} <span className="text-purple">{t("workExperience.title-2")}</span>
+        {title1} <span className="text-purple">{title2}</span>
       </h1>
 
       <div className="mt-12 grid w-full grid-cols-1 gap-10 lg:grid-cols-4">

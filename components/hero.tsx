@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from 'react';
 import Link from "next/link";
 import { FaLocationArrow } from "react-icons/fa6";
 import { Spotlight } from "@/components/ui/spotlight";
@@ -8,7 +9,16 @@ import { MagicButton } from "@/components/ui/magic-button";
 import { useTranslation } from 'react-i18next';
 
 export const Hero = () => {
-  const { t } = useTranslation();
+  const { t, ready } = useTranslation();
+  const [introText, setIntroText] = useState<string>("");
+  const [showMoreText, setShowMoreText] = useState<string>("");
+
+  useEffect(() => {
+    if (ready) {
+      setIntroText(t("hero.intro"));
+      setShowMoreText(t("hero.showMore"));
+    }
+  }, [t, ready]);
 
   return (
     <div className="pb-20 pt-36">
@@ -28,25 +38,23 @@ export const Hero = () => {
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black-100" />
       </div>
 
-      // In your main component
-<div className="relative z-10 my-20 flex justify-center">
-  <div className="flex max-w-[89vw] flex-col items-center justify-center md:max-w-2xl lg:max-w-[60vw]">
-    <TextGenerateEffect
-      className="text-center text-[40px] md:text-5xl lg:text-6xl"
-      words={t("hero.intro")} // Ensure `t` is used here to get the translated text
-    />
+      <div className="relative z-10 my-20 flex justify-center">
+        <div className="flex max-w-[89vw] flex-col items-center justify-center md:max-w-2xl lg:max-w-[60vw]">
+          <TextGenerateEffect
+            className="text-center text-[40px] md:text-5xl lg:text-6xl"
+            words={introText} // Use state for translated text
+          />
 
-    <Link href="#about" className="md:mt-10">
-      <MagicButton
-        title={t("hero.showMore")}
-        icon={<FaLocationArrow />}
-        position="right"
-        asChild
-      />
-    </Link>
-  </div>
-</div>
-
+          <Link href="#about" className="md:mt-10">
+            <MagicButton
+              title={showMoreText} // Use state for translated text
+              icon={<FaLocationArrow />}
+              position="right"
+              asChild
+            />
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

@@ -6,101 +6,148 @@ import IconTestimonials  from '../public/testimonials.png';
 import IconContact  from '../public/contact.png';
 import { useTranslation } from 'react-i18next';
 
-export const useNav = () =>{
-  const { t } = useTranslation();
+import { useEffect, useState } from 'react';
+import { StaticImageData } from 'next/image';
 
-  return [
-    { name: t("nav.about"), link: "#about", icon: IconUser },
-    { name: t("nav.experience"), link: "#experience", icon: IconExperience },
-    { name: t("nav.testimonials"), link: "#testimonials", icon: IconTestimonials },
-    { name: t("nav.contact"), link: "#footer", icon: IconContact },
-  ]
+interface NavItem {
+  name: string;
+  link: string;
+  icon: StaticImageData;
+}
+
+export const useNav = () => {
+  const { t, ready } = useTranslation();
+  const [navItems, setNavItems] = useState<NavItem[]>([]);
+
+  useEffect(() => {
+    if (ready) {
+      setNavItems([
+        { name: t("nav.about"), link: "#about", icon: IconUser },
+        { name: t("nav.experience"), link: "#experience", icon: IconExperience },
+        { name: t("nav.testimonials"), link: "#testimonials", icon: IconTestimonials },
+        { name: t("nav.contact"), link: "#footer", icon: IconContact },
+      ]);
+    }
+  }, [t, ready]);
+
+  return navItems;
+};
+
+interface NavItems {
+  id: number;
+  title: string;
+  description: string;
+  className: string;
+  imgClassName: string;
+  titleClassName: string;
+  img: string;
+  spareImg: string;
 }
 
 
 export const useNavItems = () => {
-  const { t } = useTranslation();
+  const { t, ready } = useTranslation();
+  const [navItems, setNavItems] = useState<NavItems[]>([]);
 
-  return [
-    {
-      id: 1,
-      title: t("gridItems.1Title"),
-      description: "",
-      className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
-      imgClassName: "w-full h-full",
-      titleClassName: "justify-end",
-      img: "/b1.svg",
-      spareImg: "",
-    },
-    {
-      id: 2,
-      title: t("gridItems.2Title"),
-      description: "",
-      className: "lg:col-span-2 md:col-span-6 md:row-span-4",
-      imgClassName: "",
-      titleClassName: "justify-start",
-      img: "",
-      spareImg: "",
-    },
-  
-    {
-      id: 4,
-      title: t("gridItems.3Title"),
-      description: "",
-      className: "lg:col-span-3 md:col-span-3 md:row-span-1",
-      imgClassName: "",
-      titleClassName: "justify-start",
-      img: "/grid.svg",
-      
-    },
-  
-    {
-      id: 6,
-      title: t("gridItems.4Title"),
-      description: "",
-      className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-      imgClassName: "",
-      titleClassName: "justify-center md:max-w-full max-w-60 text-center",
-      img: "",
-      spareImg: "",
-    },
-  ] as const;
+  useEffect(() => {
+    if (ready) {
+      setNavItems([
+        {
+          id: 1,
+          title: t("gridItems.1Title"),
+          description: "",
+          className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
+          imgClassName: "w-full h-full",
+          titleClassName: "justify-end",
+          img: "/b1.svg",
+          spareImg: "",
+        },
+        {
+          id: 2,
+          title: t("gridItems.2Title"),
+          description: "",
+          className: "lg:col-span-2 md:col-span-6 md:row-span-4",
+          imgClassName: "",
+          titleClassName: "justify-start",
+          img: "",
+          spareImg: "",
+        },
+        {
+          id: 4,
+          title: t("gridItems.3Title"),
+          description: "",
+          className: "lg:col-span-3 md:col-span-3 md:row-span-1",
+          imgClassName: "",
+          titleClassName: "justify-start",
+          img: "/grid.svg",
+          spareImg: "",
+        },
+        {
+          id: 6,
+          title: t("gridItems.4Title"),
+          description: "",
+          className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+          imgClassName: "",
+          titleClassName: "justify-center md:max-w-full max-w-60 text-center",
+          img: "",
+          spareImg: "",
+        },
+      ]);
+    }
+  }, [t, ready]);
+
+  return navItems;
 };
 
-export const useWorkExperience = () => {
-  const { t } = useTranslation();
-
-  return [
-    {
-      id: 1,
-      title: t("workExperience.appolon-title"),
-      desc: t("workExperience.appolon-description"),
-      className: "md:col-span-2",
-      thumbnail: "/appolon_logo_no_text.svg",
-    },
-    {
-      id: 2,
-      title: t("workExperience.innovation-title"),
-      desc: t("workExperience.innovation-description"),
-      className: "md:col-span-2",
-      thumbnail: "/exp2.svg",
-    },
-    {
-      id: 3,
-      title: t("workExperience.cloud-infrastrucutre-title"),
-      desc: t("workExperience.cloud-infrastrucutre-title"),
-      className: "md:col-span-2",
-      thumbnail: "/exp3.svg",
-    },
-    {
-      id: 4,
-      title: t("workExperience.client-portal-title"),
-      desc: t("workExperience.client-portal-description"),
-      className: "md:col-span-2",
-      thumbnail: "/exp4.svg",
-    },
-  ]
+interface WorkExperienceItem {
+  id: number;
+  title: string;
+  desc: string;
+  className: string;
+  thumbnail: string;
 }
+
+export const useWorkExperience = () => {
+  const { t, ready } = useTranslation();
+  const [workExperience, setWorkExperience] = useState<WorkExperienceItem[]>([]);
+
+  useEffect(() => {
+    if (ready) {
+      setWorkExperience([
+        {
+          id: 1,
+          title: t("workExperience.appolon-title"),
+          desc: t("workExperience.appolon-description"),
+          className: "md:col-span-2",
+          thumbnail: "/appolon_logo_no_text.svg",
+        },
+        {
+          id: 2,
+          title: t("workExperience.innovation-title"),
+          desc: t("workExperience.innovation-description"),
+          className: "md:col-span-2",
+          thumbnail: "/exp2.svg",
+        },
+        {
+          id: 3,
+          title: t("workExperience.cloud-infrastrucutre-title"),
+          desc: t("workExperience.cloud-infrastrucutre-description"),
+          className: "md:col-span-2",
+          thumbnail: "/exp3.svg",
+        },
+        {
+          id: 4,
+          title: t("workExperience.client-portal-title"),
+          desc: t("workExperience.client-portal-description"),
+          className: "md:col-span-2",
+          thumbnail: "/exp4.svg",
+        },
+      ]);
+    }
+  }, [t, ready]);
+
+  return workExperience;
+};
 
 // export const projects = [
 //   {
@@ -141,38 +188,50 @@ export const useWorkExperience = () => {
 //   },
 // ] as const;
 
-export const useTestimonials = () =>{
-  const { t } = useTranslation();
-
-  return [
-    {
-      quote: t("testimonials.quote"),
-      name: t("testimonials.name"),
-      title: t("testimonials.subtitle-name"),
-    },
-    {
-      quote: t("testimonials.quote"),
-      name: t("testimonials.name"),
-      title: t("testimonials.subtitle-name"),
-    },
-    {
-      quote: t("testimonials.quote"),
-      name: t("testimonials.name"),
-      title: t("testimonials.subtitle-name"),
-    },
-    {
-      quote: t("testimonials.quote"),
-      name: t("testimonials.name"),
-      title: t("testimonials.subtitle-name"),
-    },
-    {
-      quote: t("testimonials.quote"),
-      name: t("testimonials.name"),
-      title: t("testimonials.subtitle-name"),
-    },
-    
-  ]
+interface Testimonial {
+  quote: string;
+  name: string;
+  title: string;
 }
+
+export const useTestimonials = () => {
+  const { t, ready } = useTranslation();
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+
+  useEffect(() => {
+    if (ready) {
+      setTestimonials([
+        {
+          quote: t("testimonials.quote"),
+          name: t("testimonials.name"),
+          title: t("testimonials.subtitle-name"),
+        },
+        {
+          quote: t("testimonials.quote"),
+          name: t("testimonials.name"),
+          title: t("testimonials.subtitle-name"),
+        },
+        {
+          quote: t("testimonials.quote"),
+          name: t("testimonials.name"),
+          title: t("testimonials.subtitle-name"),
+        },
+        {
+          quote: t("testimonials.quote"),
+          name: t("testimonials.name"),
+          title: t("testimonials.subtitle-name"),
+        },
+        {
+          quote: t("testimonials.quote"),
+          name: t("testimonials.name"),
+          title: t("testimonials.subtitle-name"),
+        },
+      ]);
+    }
+  }, [t, ready]);
+
+  return testimonials;
+};
 
 
 export const technologies = [
