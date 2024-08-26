@@ -1,5 +1,6 @@
 import { useSearchParams } from 'next/navigation';
 import { NextPage } from 'next';
+import Image from 'next/image';
 
 const ExperienceDetail: NextPage = () => {
   const searchParams = useSearchParams();
@@ -12,7 +13,14 @@ const ExperienceDetail: NextPage = () => {
     <div>
       <h1>{title}</h1>
       <p>{desc}</p>
-      {thumbnail && <img src={thumbnail} alt={title} />}
+      {thumbnail && (
+        <Image
+          src={thumbnail}
+          alt={title}
+          layout="responsive" // This helps maintain the aspect ratio
+          objectFit="cover" // This ensures the image covers the dimensions
+        />
+      )}
     </div>
   );
 };

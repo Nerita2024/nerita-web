@@ -1,48 +1,43 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-
 import { FocusCards } from "./ui/focus-cards";
-
 import { useTranslation } from 'react-i18next';
+import { Suspense } from "react";
 
 export const Approach = () => {
-  const { t, ready } = useTranslation();
-  const [cards, setCards] = useState<Array<{ title: string; src: string; description: string }>>([]);
+  const { t } = useTranslation();
 
-  useEffect(() => {
-    if (ready) {
-      setCards([
-        {
-          title: t("services.software-title"),
-          src: "/approach_1.png",
-          description: t("services.software-description"),
-        },
-        {
-          title: t("services.web-title"),
-          src: "/approach_2.png",
-          description: t("services.web-description"),
-        },
-        {
-          title: t("services.tech-title"),
-          src: "/approach_3.jpg",
-          description: t("services.tech-description"),
-        },
-      ]);
-    }
-  }, [t, ready]);
+  const cards = [
+    {
+      title: t("services.software-title"),
+      src: "/approach_1.png",
+      description: t("services.software-description")
+    },
+    {
+      title: t("services.web-title"),
+      src: "/approach_2.png",
+      description: t("services.web-title")
+    },
+    {
+      title: t("services.tech-title"),
+      src: "/approach_3.jpg",
+      description: t("services.tech-title")
+    },
+  ];
 
   return (
-    <section className="w-full py-20">
-      <h1 className="heading">
-        {t("services.title-1")} <span className="text-purple">{t("services.title-2")}</span>
-      </h1>
+    <Suspense fallback={<div>Loading...</div>}>
+      <section className="w-full py-20">
+        <h1 className="heading">
+          {t("services.title-1")} <span className="text-purple">{t("services.title-2")}</span>
+        </h1>
 
-      <div className="my-20 flex flex-col items-center justify-center gap-4 lg:flex-row">
-        <FocusCards cards={cards} />
-      </div>
-    </section>
+        <div className="my-20 flex flex-col items-center justify-center gap-4 lg:flex-row">
+          <FocusCards cards={cards} />
+        </div>
+      </section>
+    </Suspense>
   );
 };
 
