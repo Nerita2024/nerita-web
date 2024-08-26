@@ -1,17 +1,24 @@
 import Image from "next/image";
 
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import { companies, testimonials } from "@/data";
+import { companies, useTestimonials } from "@/data";
+
+import { useTranslation } from 'react-i18next';
 
 export const Clients = () => {
+
+  const { t } = useTranslation();
+
+  const testimonials = useTestimonials()
+
   return (
     <section id="testimonials" className="py-20">
       <h1 className="heading">
-        Kind words from <span className="text-purple">satisfied clients</span>
+        {t("testimonials.title-1")} <span className="text-purple">{t("testimonials.title-2")}</span>
       </h1>
 
       <div className="flex flex-col items-center max-lg:mt-10">
-        <div className="relative flex h-[50vh] flex-col items-center justify-center  overflow-hidden rounded-md antialiased md:h-[30rem]">
+        <div className="relative flex h-[50vh] flex-col items-center justify-center overflow-hidden rounded-md antialiased md:h-[30rem]">
           <InfiniteMovingCards
             items={testimonials}
             direction="right"
@@ -19,26 +26,43 @@ export const Clients = () => {
           />
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 max-lg:mt-10 md:gap-16">
-          {companies.map(({ id, img, name, nameImg }) => (
-            <div key={id} className="flex max-w-32 gap-2 md:max-w-60">
-              <Image
-                height={29}
-                width={43}
-                src={img}
-                alt={`${name}'s logo`}
-                className="w-5 md:w-10"
-              />
+        <h1 className="heading py-20" >
+        {t("partner.title-1")} <span className="text-purple">{t("partner.title-2")}</span>
+        </h1>
 
-              <Image
-                height={28}
-                width={131}
-                src={nameImg}
-                alt={name}
-                className="w-20 md:w-24"
-              />
-            </div>
-          ))}
+        <div className="flex flex-wrap items-center justify-center gap-5 max-lg:mt-7 md:gap-16">
+
+          {companies.map(({ id, img, name, nameImg }) => {
+            // Define default dimensions
+            let height = 220;
+            let width = 220;
+
+            // Modify dimensions based on name
+            if (name === "asws") {
+              height = 120; // Example smaller height
+              width = 120;  // Example smaller width
+            }
+
+            return (
+              <div key={id} className="flex max-w-32 gap-2 md:max-w-60">
+                <Image
+                  height={height}
+                  width={width}
+                  src={img}
+                  alt={`${name}'s logo`}
+                  className="w-15 md:w-15"
+                />
+
+                {/* <Image
+                  height={28}
+                  width={131}
+                  src={nameImg}
+                  alt={name}
+                  className="w-20 md:w-24"
+                /> */}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,11 +1,16 @@
+"use client"
+
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import { gridItems } from "@/data";
+import { useNavItems } from "@/data";
 
 export const Grid = () => {
+
+  const navItems = useNavItems()
+
   return (
     <section id="about">
       <BentoGrid>
-        {gridItems.map((gridItem) => (
+        {navItems.map((gridItem) => (
           <BentoGridItem key={gridItem.id} {...gridItem} />
         ))}
       </BentoGrid>

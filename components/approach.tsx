@@ -6,18 +6,43 @@ import { useState } from "react";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import { MagicButton } from "@/components/ui/magic-button";
 
+import { FocusCards } from "./ui/focus-cards";
+
+import { useTranslation } from 'react-i18next';
+
 export const Approach = () => {
+
+  const { t } = useTranslation();
+
+  const cards = [
+    {
+      title: t("services.software-title"),
+      src: "/approach_1.png",
+      description: t("services.software-description")
+    },
+    {
+      title: t("services.web-title"),
+      src: "/approach_2.png",
+      description: t("services.web-title")
+    },
+    {
+      title: t("services.tech-title"),
+      src: "/approach_3.jpg",
+      description: t("services.tech-title")
+    },
+    
+  ]
+
   return (
     <section className="w-full py-20">
       <h1 className="heading">
-        Our <span className="text-purple">approach</span>
+        {t("services.title-1")} <span className="text-purple">{t("services.title-2")}</span>
       </h1>
 
-      <div className="my-20 flex flex-col items-center justify-center gap-4 lg:flex-row">
+      {/* <div className="my-20 flex flex-col items-center justify-center gap-4 lg:flex-row">
         <Card
-          title="Planning & Strategy"
-          icon={<MagicButton title="Phase 1" asChild />}
-          description="We'll collaborate to map out your website's goals, target audience, and key functionalities. We'll discuss things like site structure, navigation, and content requirements."
+          title="Software Development"
+          description="Creating reliable and software-based applications and solutions to meet your goals"
         >
           <CanvasRevealEffect
             animationSpeed={5.1}
@@ -26,9 +51,8 @@ export const Approach = () => {
         </Card>
 
         <Card
-          title="Deployment & Progress Update"
-          icon={<MagicButton title="Phase 2" asChild />}
-          description="Once we agree on the plan, I cue my lofi playlist and dive into coding. From initial sketches to polished code, I keep you updated every step of the way."
+          title="Website Development"
+          description="Focusing on creating a cutting-edge website that brings modernism to your business goals"
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -42,9 +66,8 @@ export const Approach = () => {
         </Card>
 
         <Card
-          title="Development & Launch"
-          icon={<MagicButton title="Phase 3" asChild />}
-          description="This is where the magic happens! Based on the approved design, I'll translate everything into functional code, building your website from the ground up."
+          title="Technical Support"
+          description="Our applications and solutions are hosted on cloud infrastructure using innovative solutions"
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -52,55 +75,50 @@ export const Approach = () => {
             colors={[[125, 211, 252]]}
           />
         </Card>
+      </div> */}
+      <div className="my-20 flex flex-col items-center justify-center gap-4 lg:flex-row">
+        <FocusCards cards={cards} />
       </div>
     </section>
   );
 };
 
+
 type CardProps = {
   title: string;
   description: string;
-  icon: React.ReactNode;
   children?: React.ReactNode;
 };
 
-const Card = ({ title, description, icon, children }: CardProps) => {
-  const [hovered, setHovered] = useState(false);
-
+const Card = ({ title, description, children }: CardProps) => {
   return (
-    <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="group/canvas-card relative mx-auto flex w-full max-w-sm items-center justify-center rounded-3xl border border-black/[0.2] p-4 dark:border-white/[0.2] lg:h-[35rem]"
-    >
+    <div className="group/canvas-card relative mx-auto flex w-full max-w-sm items-center justify-center rounded-3xl border border-black/[0.2] p-4 dark:border-white/[0.2] lg:h-[35rem]">
       <Icon className="absolute -left-3 -top-3 h-6 w-6 text-black dark:text-white" />
       <Icon className="absolute -bottom-3 -left-3 h-6 w-6 text-black dark:text-white" />
       <Icon className="absolute -right-3 -top-3 h-6 w-6 text-black dark:text-white" />
       <Icon className="absolute -bottom-3 -right-3 h-6 w-6 text-black dark:text-white" />
 
       <AnimatePresence>
-        {hovered && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="absolute inset-0 h-full w-full"
-          >
-            {children}
-          </motion.div>
-        )}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="absolute inset-0 h-full w-full"
+        >
+          {children}
+        </motion.div>
       </AnimatePresence>
 
       <div className="relative z-20">
-        <div className="absolute left-[50%] top-[50%] mx-auto flex w-full -translate-x-[50%] -translate-y-[50%] items-center justify-center text-center transition duration-200 group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0">
-          {icon}
+        <div className="absolute left-[50%] top-[50%] mx-auto flex w-full -translate-x-[50%] -translate-y-[50%] items-center justify-center text-center transition duration-200">
+          {/* Removed icon */}
         </div>
 
-        <h2 className="relative z-10 mt-4 text-3xl font-bold text-black opacity-0 transition  duration-200 group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:text-white group-hover/canvas-card:opacity-100 dark:text-white">
+        <h2 className="relative z-10 mt-4 text-3xl font-bold text-black opacity-100 transition duration-200 dark:text-white">
           {title}
         </h2>
 
         <p
-          className="relative z-10 mt-4 text-sm font-bold text-black opacity-0 transition  duration-200 group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:text-white group-hover/canvas-card:opacity-100 dark:text-white"
+          className="relative z-10 mt-4 text-sm font-bold text-black opacity-100 transition duration-200"
           style={{
             color: "#e4ecff",
           }}
@@ -111,6 +129,8 @@ const Card = ({ title, description, icon, children }: CardProps) => {
     </div>
   );
 };
+
+
 
 export const Icon = ({ className, ...props }: any) => {
   return (

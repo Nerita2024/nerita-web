@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "about": "O nás",
+    "experience": "Naša skúsenosť",
+    "testimonials": "Recenzie",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "intro": "Nerita je poskytovateľom komplexných a inovatívnych softvérových riešení",
+    "showMore": "Zobraziť viac"
+  },
+    "gridItems": {
+    "1Title": "Od nášho vzniku pomáhame organizáciám s kompletnými technologickými riešeniami, ktoré zahŕňajú služby ako vývoj softvéru, webový dizajn a vývoj, technickú podporu a mnoho ďalšieho.",
+    "2Title": "Spoločnosť zameraná na výsledky, ktorá vytvára robustné, jedinečné a prispôsobené softvérové riešenia.",
+    "3Title": "Sme technologickí nadšenci so záľubou vo vývoji.",
+    "4Title": "Chcete začať projekt spolu?",
+    "copy-email": "Skopírujte email",
+    "email-copied": "Email skopírovaný!"
+  },
+  "workExperience": {
+    "title-1": "Naša",
+    "title-2": "pracovná skúsenosť",
+      "appolon-title": "Apollon poistný systém",
+      "appolon-description": "Riešenie pokrýva kľúčové procesy v investičnom životnom poistení - od definovania produktu cez správu zmlúv, prenos údajov až po účtovníctvo a komplexné reportovanie pre národného regulátora.",
+      "innovation-title": "Inovácie",
+      "innovation-description": "Integrácia AI možností do SW riešenia",
+      "cloud-infrastrucutre-title": "Cloudová infraštruktúra",
+      "cloud-infrastrucutre-description": "Nasadzujeme riešenie na cloudovú infraštruktúru",
+      "client-portal-title": "Klientsky portál",
+      "client-portal-description": "Jednoduchý pohľad na produkty klientov. Prognóza vývoja poistenia a investovaných fondov"
+  },
+  "technologies": {
+    "title": "Technológie",
+    "paragraph": "Všetky projekty sú jedinečné. Preto začíname hľadaním riešenia a následne vyberáme optimálnu technológiu."
+  },
+  "services": {
+    "title-1": "Naše",
+    "title-2": "služby",
+    "software-title": "Vývoj softvéru",
+    "software-description": "Tvorba spoľahlivých a softvérom založených aplikácií a riešení na dosiahnutie vašich cieľov",
+    "web-title": "Vývoj webových stránok",
+    "web-description": "Zameriavame sa na vytváranie moderných webových stránok, ktoré prinesú modernizmus vašim obchodným cieľom",
+    "tech-title": "Technická podpora",
+    "tech-description": "Naše aplikácie a riešenia sú hosťované na cloudovej infraštruktúre s využitím inovatívnych riešení"
+  },
+  "testimonials": {
+    "title-1": "Láskavé slová od",
+    "title-2": "spokojných klientov",
+    "quote": "Spolupráca s Nerita bola absolútne potešením. Jeho profesionalita, promptnosť a odhodlanie poskytovať výnimočné výsledky boli viditeľné počas celého nášho projektu. Nadšenie ${links.ownerName} pre každú stránku vývoja naozaj vyniká. Ak hľadáte spôsob, ako pozdvihnúť vašu webovú stránku a značku, ${links.ownerName} je ideálny partner.",
+    "name": "Michael Johnson",
+    "subtitle-name": "Riaditeľ AlphaStream Technologies"
+  },
+  "partner": {
+    "title-1": "Partnerské",
+    "title-2": "spoločnosti"
+  },
+  "footer": {
+    "address": "Adresa: ",
+    "phone": "Telefón: ",
+    "email": "Email: ",
+    "rights": "Nerita, Všetky práva vyhradené."
+  }
+  
+
+}

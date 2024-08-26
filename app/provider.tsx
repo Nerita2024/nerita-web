@@ -1,8 +1,15 @@
 "use client";
 
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import type { ThemeProviderProps } from "next-themes/dist/types";
+import { appWithTranslation } from 'next-i18next';
+import type { AppProps } from 'next/app';
 
-export const ThemeProvider = ({ children, ...props }: ThemeProviderProps) => {
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
-};
+// Define a component for your app
+const MyApp = ({ Component, pageProps }: AppProps) => (
+  <NextThemesProvider>
+    <Component {...pageProps} />
+  </NextThemesProvider>
+);
+
+// Wrap the component with appWithTranslation
+export default appWithTranslation(MyApp);

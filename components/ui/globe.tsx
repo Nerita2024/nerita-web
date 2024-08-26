@@ -80,12 +80,12 @@ export const Globe = ({ globeConfig, data }: WorldProps) => {
     pointSize: 1,
     atmosphereColor: "#ffffff",
     showAtmosphere: true,
-    atmosphereAltitude: 0.1,
-    polygonColor: "rgba(255,255,255,0.7)",
-    globeColor: "#1d072e",
-    emissive: "#000000",
-    emissiveIntensity: 0.1,
-    shininess: 0.9,
+    atmosphereAltitude: 0.3,  // Increased atmosphere altitude for more glow
+    polygonColor: "rgba(255,255,255,1)",  // Full opacity for polygons
+    globeColor: "#FFFFFF",  // Bright white globe color
+    emissive: "#FFFF00",  // Bright yellow emissive color
+    emissiveIntensity: 1,  // Max emissive intensity
+    shininess: 3,  // Increased shininess
     arcTime: 2000,
     arcLength: 0.9,
     rings: 1,

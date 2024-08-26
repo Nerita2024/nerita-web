@@ -1,13 +1,41 @@
+"use client"; // Mark this as a Client Component
+
+import { useRouter } from 'next/navigation';
 import Image from "next/image";
 
 import { Button } from "@/components/ui/moving-borders";
-import { workExperience } from "@/data";
+import { useWorkExperience } from "@/data";
+
+import { useTranslation } from 'react-i18next';
+
+interface ExperienceItem {
+  id: number;
+  title: string;
+  desc: string;
+  thumbnail: string;
+}
 
 export const Experience = () => {
+  const router = useRouter();
+  const workExperience = useWorkExperience() 
+
+  const { t } = useTranslation();
+
+  const handleButtonClick = (experience: ExperienceItem) => {
+    const query = new URLSearchParams({
+      id: experience.id.toString(),
+      title: experience.title,
+      desc: experience.desc,
+      thumbnail: experience.thumbnail
+    }).toString();
+
+    router.push(`/experience-detail?${query}`);
+  };
+
   return (
     <section id="experience" className="py-20">
       <h1 className="heading">
-        Our <span className="text-purple">work experience</span>
+        {t("workExperience.title-1")} <span className="text-purple">{t("workExperience.title-2")}</span>
       </h1>
 
       <div className="mt-12 grid w-full grid-cols-1 gap-10 lg:grid-cols-4">
@@ -17,6 +45,7 @@ export const Experience = () => {
             borderRadius="1.75rem"
             className="flex-1 border-neutral-200 text-white dark:border-slate-800"
             duration={Math.floor(Math.random() * 10000 + 10000)}
+            onClick={() => handleButtonClick(experience)}
           >
             <div className="flex flex-col gap-2 p-3 py-6 md:p-5 lg:flex-row lg:items-center lg:p-10">
               <Image

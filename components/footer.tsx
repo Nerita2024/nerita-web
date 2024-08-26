@@ -6,7 +6,15 @@ import { MagicButton } from "@/components/ui/magic-button";
 import { links } from "@/config";
 import { socialMedia } from "@/data";
 
+
+import { useTranslation } from 'react-i18next';
+
+import { Clients } from "@/components/clients";
+
 export const Footer = () => {
+
+  const { t } = useTranslation();
+
   return (
     <footer id="contact" className="mb-[100px] w-full pb-10 md:mb-auto">
       <div className="absolute -bottom-72 left-0 min-h-96 w-full">
@@ -20,17 +28,9 @@ export const Footer = () => {
       </div>
 
       <div className="flex flex-col items-center">
-        <h1 className="heading lg:max-w-[45vw]">
-          Ready to take <span className="text-purple">your</span> digital
-          presence to the next level?
-        </h1>
+        <Clients />
 
-        <p className="my-5 text-center text-white-200 md:mt-10">
-          Reach out to us today and let&apos;s discuss how We can help 
-          achieve your goals.
-        </p>
-
-        <Link
+        {/* <Link
           href={`mailto:${links.ownerEmail}`}
           target="_blank"
           rel="noreferrer noopener"
@@ -42,58 +42,45 @@ export const Footer = () => {
             position="right"
             asChild
           />
-        </Link>
+        </Link> */}
       </div>
 
-      <div className="relative z-[999] mt-16 flex flex-col items-center justify-between md:flex-row">
-        <p className="text-sm font-light md:text-base md:font-normal">
-          Copyright &copy; {new Date().getFullYear()}{" "}
-          {/*<Link
-            href="https://sanidhy.me"
-            target="_blank"
-            rel="noreferrer noopener"
-            className="text-purple"
-          >*/}
-            Nerita, a.s.
-             {/*
-          </Link>{" "}
-          |{" "}
-          <Link href={links.sourceCode} className="underline">
-            Source Code
-          </Link>
-          */}
-          <br />
-          <br />
-          Address: Panská 9, 811 01 Bratislava, Slovakia 
-          <br />
-          Phone: +421 911 065 505
-          <br />
-          IČO: 50 308 891
-          <br />
-         
+      <div id="footer" className="relative z-[999] mt-16 flex flex-col items-center justify-between gap-8 md:flex-row md:gap-12 px-4 md:px-8">
+  <p className="text-sm font-light md:text-base md:font-normal text-center md:text-left">
+    {t("footer.address")} Panská 9, 811 01 Bratislava, Slovakia
+    <br />
+    {t("footer.phone")} +421 911 065 505
+    <br />
+    {t("footer.email")} nerita@nerita.eu
+    <br />
+    <br />
+    <span>Copyright &copy; {new Date().getFullYear()} {t("footer.rights")}</span>
+  </p>
 
-        </p>
+  <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
+    {socialMedia.map((profile) => (
+      <Link
+        key={profile.name}
+        href={profile.link}
+        target="_blank"
+        rel="noreferrer noopener"
+        className="saturate-180 flex items-center justify-center rounded-lg border border-black-300 bg-black-200 bg-opacity-75 backdrop-blur-lg backdrop-filter p-2"
+        title={profile.name}
+      >
+        <Image
+          src={profile.img}
+          alt={`profile-${profile.name}`}
+          width={24}
+          height={24}
+        />
+      </Link>
+    ))}
+  </div>
+</div>
 
-        <div className="flex items-center gap-6 md:gap-3">
-          {socialMedia.map((profile) => (
-            <Link
-              key={profile.name}
-              href={profile.link}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="saturate-180 flex size-10 items-center justify-center rounded-lg border border-black-300 bg-black-200 bg-opacity-75 backdrop-blur-lg backdrop-filter"
-              title={profile.name}
-            >
-              <Image
-                src={profile.img}
-                alt={`profile-${profile.name}`}
-                width={20}
-                height={20}
-              />
-            </Link>
-          ))}
+        <div className="relative z-[999] mt-16 flex flex-col items-center justify-center md:flex-row"> 
+          
         </div>
-      </div>
     </footer>
   );
 };

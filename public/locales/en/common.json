@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Our Experience",
+    "testimonials": "Testimonials",
+    "contact": "Contact"
+  },
+  "hero": {
+    "intro": "Nerita, is a provider of comprehensive and innovative software solutions",
+    "showMore": "Show more"
+  },
+  "gridItems":{
+    "1Title": "Since our inception, we have been helping organizations with complete technology solutions consisting of services such as software development, web design and development, technical support and much more. ",
+    "2Title": "A results-oriented company that creates robust, unique and tailored software solutions",
+    "3Title": "We are tech enthusiasts with a passion for development.",
+    "4Title": "Do you want to start a project together?",
+    "copy-email": "Copy email",
+    "email-copied": "Copied!"
+  },
+  "workExperience": {
+    "title-1": "Our",
+    "title-2": "work experience",
+    "appolon-title": "Apollon Insurance system",
+    "appolon-description": "The solution covers key processes in investment life insurance - from product definition through contract management, data transmission to accounting, and complex reporting for the national regulator.",
+    "innovation-title": "Inovation",
+    "innovation-description": "Integration of AI options into the SW solution",
+    "cloud-infrastrucutre-title": "Cloud infrastructure",
+    "cloud-infrastrucutre-description": "We deploy the solution on cloud infrastructure",
+    "client-portal-title": "Client portal",
+    "client-portal-description": "A simple look at clients porducts. Prognosis of insurance development and invested funds"
+  },
+  "technologies": {
+    "title": "Technologies",
+    "paragraph": "All projects are unique. That's why we start by finding the solution adn then we select optimal-fit technology."
+  },
+  "services":{
+    "title-1": "Our",
+    "title-2": "services",
+    "software-title": "Software Development",
+    "software-description": "Creating reliable and software-based applications and solutions to meet your goals",
+    "web-title": "Website Development",
+    "web-description": "Focusing on creating a cutting-edge website that brings modernism to your business goals",
+    "tech-title": "Technical Support",
+    "tech-description": "Our applications and solutions are hosted on cloud infrastructure using innovative solutions"
+  },
+  "testimonials": {
+    "title-1": "Kind words from",
+    "title-2": "satisfied clients",
+    "quote": "Collaborating with Nerita was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. ${links.ownerName}'s enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, ${links.ownerName} is the ideal partner.",
+    "name": "Michael Johnson",
+    "subtitle-name": "Director of AlphaStream Technologies"
+  },
+  "partner": {
+    "title-1": "Partner",
+    "title-2": "companies"
+  },
+  "footer":{
+    "address": "Address: ",
+    "phone": "Phone: ",
+    "email": "Email: ",
+    "rights": "Nerita, All rights reserved."
+  }
+}

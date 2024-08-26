@@ -1,208 +1,280 @@
+"use client";
+
 import { links } from "@/config";
 
-export const navItems = [
-  { name: "About", link: "#about" },
-  { name: "Our Experience", link: "#experience" },
-  { name: "Testimonials", link: "#testimonials" },
-  { name: "Contact", link: "#contact" },
-] as const;
+import IconUser  from '../public/user.png';
+import IconExperience  from '../public/experience.png';
+import IconTestimonials  from '../public/testimonials.png';
+import IconContact  from '../public/contact.png';
+import { useTranslation } from 'react-i18next';
 
-export const gridItems = [
+export const useNav = () =>{
+  const { t } = useTranslation();
+
+  return [
+    { name: t("nav.about"), link: "#about", icon: IconUser },
+    { name: t("nav.experience"), link: "#experience", icon: IconExperience },
+    { name: t("nav.testimonials"), link: "#testimonials", icon: IconTestimonials },
+    { name: t("nav.contact"), link: "#footer", icon: IconContact },
+  ]
+}
+;
+
+export const useNavItems = () => {
+  const { t } = useTranslation();
+
+  return [
+    {
+      id: 1,
+      title: t("gridItems.1Title"),
+      description: "",
+      className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
+      imgClassName: "w-full h-full",
+      titleClassName: "justify-end",
+      img: "/b1.svg",
+      spareImg: "",
+    },
+    {
+      id: 2,
+      title: t("gridItems.2Title"),
+      description: "",
+      className: "lg:col-span-2 md:col-span-6 md:row-span-4",
+      imgClassName: "",
+      titleClassName: "justify-start",
+      img: "",
+      spareImg: "",
+    },
+  
+    {
+      id: 4,
+      title: t("gridItems.3Title"),
+      description: "",
+      className: "lg:col-span-3 md:col-span-3 md:row-span-1",
+      imgClassName: "",
+      titleClassName: "justify-start",
+      img: "/grid.svg",
+      
+    },
+  
+    {
+      id: 6,
+      title: t("gridItems.4Title"),
+      description: "",
+      className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+      imgClassName: "",
+      titleClassName: "justify-center md:max-w-full max-w-60 text-center",
+      img: "",
+      spareImg: "",
+    },
+  ] as const;
+};
+
+export const useWorkExperience = () => {
+  const { t } = useTranslation();
+
+  return [
+    {
+      id: 1,
+      title: t("workExperience.appolon-title"),
+      desc: t("workExperience.appolon-description"),
+      className: "md:col-span-2",
+      thumbnail: "/appolon_logo_no_text.svg",
+    },
+    {
+      id: 2,
+      title: t("workExperience.innovation-title"),
+      desc: t("workExperience.innovation-description"),
+      className: "md:col-span-2",
+      thumbnail: "/exp2.svg",
+    },
+    {
+      id: 3,
+      title: t("workExperience.cloud-infrastrucutre-title"),
+      desc: t("workExperience.cloud-infrastrucutre-title"),
+      className: "md:col-span-2",
+      thumbnail: "/exp3.svg",
+    },
+    {
+      id: 4,
+      title: t("workExperience.client-portal-title"),
+      desc: t("workExperience.client-portal-description"),
+      className: "md:col-span-2",
+      thumbnail: "/exp4.svg",
+    },
+  ]
+}
+
+// export const projects = [
+//   {
+//     id: 1,
+//     title: "FigPro - Collaborative Design Tool",
+//     des: "A collaborative design tool with real-time collaboration, vector editing, and a responsive UI.",
+//     img: "/p1.svg",
+//     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
+//     link: "https://clone-figmaa.netlify.app",
+//     sourceCode: "https://github.com/sanidhyy/figma-clone",
+//   },
+//   {
+//     id: 2,
+//     title: "Yoom - Video Conferencing App",
+//     des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
+//     img: "/p2.svg",
+//     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+//     link: "https://clone-yoom.netlify.app",
+//     sourceCode: "https://github.com/sanidhyy/zoom-clone",
+//   },
+//   {
+//     id: 3,
+//     title: "AI Image SaaS - Canva Application",
+//     des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
+//     img: "/p3.svg",
+//     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
+//     link: "https://ai-imaginify.netlify.app",
+//     sourceCode: "https://github.com/sanidhyy/imaginify",
+//   },
+//   {
+//     id: 4,
+//     title: "Animated Apple Iphone 3D Website",
+//     des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
+//     img: "/p4.svg",
+//     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
+//     link: "https://app-iphone.netlify.app",
+//     sourceCode: "https://github.com/sanidhyy/apple-clone",
+//   },
+// ] as const;
+
+export const useTestimonials = () =>{
+  const { t } = useTranslation();
+
+  return [
+    {
+      quote: t("testimonials.quote"),
+      name: t("testimonials.name"),
+      title: t("testimonials.subtitle-name"),
+    },
+    {
+      quote: t("testimonials.quote"),
+      name: t("testimonials.name"),
+      title: t("testimonials.subtitle-name"),
+    },
+    {
+      quote: t("testimonials.quote"),
+      name: t("testimonials.name"),
+      title: t("testimonials.subtitle-name"),
+    },
+    {
+      quote: t("testimonials.quote"),
+      name: t("testimonials.name"),
+      title: t("testimonials.subtitle-name"),
+    },
+    {
+      quote: t("testimonials.quote"),
+      name: t("testimonials.name"),
+      title: t("testimonials.subtitle-name"),
+    },
+    
+  ]
+}
+
+
+export const technologies = [
   {
     id: 1,
-    title: "We provide complex system deployment to routine operation and ongoing maintenance. ",
-    description: "",
-    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
-    imgClassName: "w-full h-full",
-    titleClassName: "justify-end",
-    img: "/b1.svg",
-    spareImg: "",
+    name: "Docker",
+    img: "/docker-mark-blue.svg",
+    nameImg: "/docker-mark-blue.svg",
   },
   {
     id: 2,
-    title: "We will ensure the implementation of the latest changes in European and national legislation.",
-    description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-3",
-    imgClassName: "",
-    titleClassName: "justify-start",
-    img: "",
-    spareImg: "",
+    name: "react",
+    img: "/react-js-icon.svg",
+    nameImg: "/react-js-icon.svg",
   },
   {
     id: 3,
-    title: "Our technology stack",
-    description: "We are constantly striving to improve",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-    imgClassName: "",
-    titleClassName: "justify-center",
-    img: "",
-    spareImg: "",
+    name: "react-native",
+    img: "/react-native-1.svg",
+    nameImg: "/react-native-1.svg",
   },
   {
     id: 4,
-    title: "We are tech enthusiasts with a passion for development.",
-    description: "",
-    className: "lg:col-span-3 md:col-span-3 md:row-span-1",
-    imgClassName: "",
-    titleClassName: "justify-start",
-    img: "/grid.svg",
-    spareImg: "/b4.svg",
+    name: "postgree",
+    img: "/postgresql-logo.svg",
+    nameImg: "/postgresql-logo.svg",
   },
-
   {
     id: 5,
-    title: "We understand the code",
-    description: "The Inside Scoop",
-    className: "md:col-span-3 md:row-span-2",
-    imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
-    titleClassName: "justify-center md:justify-start lg:justify-center",
-    img: "/b5.svg",
-    spareImg: "/grid.svg",
+    name: "elasticsearch",
+    img: "/es-logo.svg",
+    nameImg: "/es-logo.svg",
   },
   {
-    id: 6,
-    title: "Do you want to start a project together?",
-    description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-    imgClassName: "",
-    titleClassName: "justify-center md:max-w-full max-w-60 text-center",
-    img: "",
-    spareImg: "",
-  },
-] as const;
-
-export const projects = [
-  {
-    id: 1,
-    title: "FigPro - Collaborative Design Tool",
-    des: "A collaborative design tool with real-time collaboration, vector editing, and a responsive UI.",
-    img: "/p1.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-    link: "https://clone-figmaa.netlify.app",
-    sourceCode: "https://github.com/sanidhyy/figma-clone",
+    id: 5,
+    name: "digital-ocean",
+    img: "/digital-ocean-logo.svg",
+    nameImg: "/digital-ocean-logo.svg",
   },
   {
-    id: 2,
-    title: "Yoom - Video Conferencing App",
-    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-    img: "/p2.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-    link: "https://clone-yoom.netlify.app",
-    sourceCode: "https://github.com/sanidhyy/zoom-clone",
+    id: 5,
+    name: "laravel",
+    img: "/laravel-logo.svg",
+    nameImg: "/laravel-logo.svg",
   },
   {
-    id: 3,
-    title: "AI Image SaaS - Canva Application",
-    des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
-    img: "/p3.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-    link: "https://ai-imaginify.netlify.app",
-    sourceCode: "https://github.com/sanidhyy/imaginify",
+    id: 5,
+    name: "aws",
+    img: "/aws-logo(2).png",
+    nameImg: "/aws-logo.svg",
   },
   {
-    id: 4,
-    title: "Animated Apple Iphone 3D Website",
-    des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
-    img: "/p4.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-    link: "https://app-iphone.netlify.app",
-    sourceCode: "https://github.com/sanidhyy/apple-clone",
-  },
-] as const;
-
-export const testimonials = [
-  {
-    quote: `Collaborating with ${links.ownerName} was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. ${links.ownerName}'s enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, ${links.ownerName} is the ideal partner.`,
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+    id: 5,
+    name: "tailwind",
+    img: "/tailwind-logo.svg",
+    nameImg: "/tailwind-logo.svg",
   },
   {
-    quote: `Collaborating with ${links.ownerName} was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. ${links.ownerName}'s enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, ${links.ownerName} is the ideal partner.`,
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-  {
-    quote: `Collaborating with ${links.ownerName} was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. ${links.ownerName}'s enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, ${links.ownerName} is the ideal partner.`,
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-  {
-    quote: `Collaborating with ${links.ownerName} was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. ${links.ownerName}'s enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, ${links.ownerName} is the ideal partner.`,
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-  {
-    quote: `Collaborating with ${links.ownerName} was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. ${links.ownerName}'s enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, ${links.ownerName} is the ideal partner.`,
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+    id: 5,
+    name: "nodejs",
+    img: "/nodejs-logo.svg",
+    nameImg: "/nodejs-logo.svg",
   },
 ] as const;
 
 export const companies = [
   {
     id: 1,
-    name: "cloudinary",
-    img: "/cloud.svg",
+    name: "IBM Cloud",
+    img: "/ibm_cloud_logo.png",
     nameImg: "/cloudName.svg",
   },
   {
     id: 2,
-    name: "appwrite",
-    img: "/app.svg",
+    name: "Microsoft Azure",
+    img: "/mazure-logo.png",
     nameImg: "/appName.svg",
   },
   {
     id: 3,
-    name: "HOSTINGER",
-    img: "/host.svg",
+    name: "Google Cloud",
+    img: "/google-cloud.png",
     nameImg: "/hostName.svg",
   },
   {
     id: 4,
-    name: "stream",
-    img: "/s.svg",
-    nameImg: "/streamName.svg",
+    name: "asws",
+    img: "/amazon_ws_logo.png",
+    nameImg: "/aws-logo-services.svg",
   },
-  {
-    id: 5,
-    name: "docker.",
-    img: "/dock.svg",
-    nameImg: "/dockerName.svg",
-  },
+  
 ] as const;
 
-export const workExperience = [
-  {
-    id: 1,
-    title: "Agent Portal",
-    desc: "Effective communication with the client through direct insurance contract registration - significantly shorter the insurance policy acceptance process",
-    className: "md:col-span-2",
-    thumbnail: "/exp1.svg",
-  },
-  {
-    id: 2,
-    title: "Extensive possibilities",
-    desc: "Storing data into the system. Get complex system as well as user-defined reports and data for management in the middle and top management of the insurance company",
-    className: "md:col-span-2", // change to md:col-span-2
-    thumbnail: "/exp2.svg",
-  },
-  {
-    id: 3,
-    title: "Cloud Infrastructure",
-    desc: "We deploy the solution on cloud infrastructure",
-    className: "md:col-span-2", // change to md:col-span-2
-    thumbnail: "/exp3.svg",
-  },
-  {
-    id: 4,
-    title: "Client portal",
-    desc: "A simple look at clients porducts. Prognosis of insurance development and invested funds",
-    className: "md:col-span-2",
-    thumbnail: "/exp4.svg",
-  },
-] as const;
 
 export const socialMedia = [
+  {
+    name: "E-mail",
+    img: "/mail.png",
+    link: "mailto:nerita@nerita.eu",
+  },
   {
     name: "GitHub",
     img: "/git.svg",

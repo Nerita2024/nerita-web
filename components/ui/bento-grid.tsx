@@ -15,6 +15,8 @@ import { MagicButton } from "./magic-button";
 
 import { GridGlobe } from "../grid-globe";
 
+import { useTranslation } from 'react-i18next';
+
 export const BentoGrid = ({
   className,
   children,
@@ -54,6 +56,8 @@ export const BentoGridItem = ({
   spareImg?: string;
 }) => {
   const [copied, setCopied] = useState(false);
+
+  const { t } = useTranslation();
 
   const handleCopy = () => {
     navigator.clipboard.writeText(links.ownerEmail);
@@ -120,11 +124,11 @@ export const BentoGridItem = ({
             titleClassName
           )}
         >
-          <div className="z-10 font-sans text-sm font-extralight text-[#c1c2d3] md:text-xs lg:text-base">
+          <div className="z-10  text-sm font-extralight text-[#c1c2d3] md:text-xs lg:text-base">
             {description}
           </div>
 
-          <div className="z-10 max-w-96 font-sans text-lg font-bold lg:text-3xl">
+          <div className="z-10 max-w-96  text-lg font-bold lg:text-3xl">
             {title}
           </div>
 
@@ -178,7 +182,7 @@ export const BentoGridItem = ({
               </button>
 
               <MagicButton
-                title={copied ? "Email copied!" : "Copy my email"}
+                title={copied ? t("gridItems.email-copied") : t("gridItems.copy-email")}
                 icon={<IoCopyOutline />}
                 otherClasses="!bg-[#161a31]"
                 handleClick={handleCopy}

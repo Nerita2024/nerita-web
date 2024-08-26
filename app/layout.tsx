@@ -3,8 +3,7 @@ import { Inter } from "next/font/google";
 import type { PropsWithChildren } from "react";
 
 import { siteConfig } from "@/config";
-
-import { ThemeProvider } from "./provider";
+import { ThemeProvider } from "next-themes"; // Import ThemeProvider from next-themes
 
 import "./globals.css";
 
