@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { companies, technologies } from "@/data";
+import { technologies } from "@/data";
 import { useTranslation } from 'react-i18next';
 import { Suspense } from "react";
 
