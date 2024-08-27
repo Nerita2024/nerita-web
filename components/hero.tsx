@@ -12,6 +12,8 @@ import { Suspense } from "react";
 const Hero = () => {
   const { t } = useTranslation();
 
+  //qwe
+
   return (
     <div className="pb-20 pt-36">
       <div>
