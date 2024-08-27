@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-
-import { testimonials } from "@/data";
+import { useTestimonials } from "@/data"; // Ensure this import path is correct
 import { cn } from "@/lib/utils";
 
 export const InfiniteMovingCards = ({
@@ -13,7 +12,7 @@ export const InfiniteMovingCards = ({
   pauseOnHover = true,
   className,
 }: {
-  items: typeof testimonials;
+  items: ReturnType<typeof useTestimonials>;
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
@@ -22,6 +21,7 @@ export const InfiniteMovingCards = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollerRef = useRef<HTMLUListElement>(null);
   const [start, setStart] = useState(false);
+
   const addAnimation = () => {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
@@ -41,29 +41,30 @@ export const InfiniteMovingCards = ({
 
   const getDirection = () => {
     if (containerRef.current) {
-      if (direction === "left") {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "forwards"
-        );
-      } else {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "reverse"
-        );
-      }
+      containerRef.current.style.setProperty(
+        "--animation-direction",
+        direction === "left" ? "forwards" : "reverse"
+      );
     }
   };
 
   const getSpeed = () => {
     if (containerRef.current) {
-      if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "20s");
-      } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "40s");
-      } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
+      let duration: string;
+      switch (speed) {
+        case "fast":
+          duration = "20s";
+          break;
+        case "normal":
+          duration = "40s";
+          break;
+        case "slow":
+          duration = "80s";
+          break;
+        default:
+          duration = "40s";
       }
+      containerRef.current.style.setProperty("--animation-duration", duration);
     }
   };
 
@@ -103,7 +104,7 @@ export const InfiniteMovingCards = ({
                 aria-hidden="true"
                 className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
               />
-              <span className=" relative z-20 text-sm font-normal leading-[1.6] text-white md:text-lg">
+              <span className="relative z-20 text-sm font-normal leading-[1.6] text-white md:text-lg">
                 {item.quote}
               </span>
 
@@ -122,7 +123,7 @@ export const InfiniteMovingCards = ({
                     {item.name}
                   </span>
 
-                  <span className=" text-sm font-normal leading-[1.6] text-white-200">
+                  <span className="text-sm font-normal leading-[1.6] text-white-200">
                     {item.title}
                   </span>
                 </div>
