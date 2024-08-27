@@ -62,13 +62,15 @@ const FloatingNav = ({ className }: FloatingNavProps) => {
           className
         )}
       >
-        <div className="flex items-center space-x-4">
-          <img
-            src="/nerita_logo_no_text.svg" // Path to your SVG file in the public folder
-            alt="Logo"
-            className="h-8 w-auto" // Adjust size as needed
-          />
-        </div>
+        <Link href="https://nerita-web.vercel.app/">
+          <div className="flex items-center space-x-4 sm:mr-8 mr-0">
+            <img
+              src="/nerita_logo.png" // Path to your image in the public folder
+              alt="Logo"
+              className="h-8 w-auto" // Adjust size as needed
+            />
+          </div>
+        </Link>
         {navItems.map((navItem, idx) => (
           <Link
             key={`link-${idx}`}
@@ -94,7 +96,8 @@ const FloatingNav = ({ className }: FloatingNavProps) => {
           <select
             value={selectedLanguage}
             onChange={(e) => handleChangeLanguage(e.target.value)}
-            className="text-sm px-2 py-1 rounded bg-black-100 hover:bg-black-200 dark:hover:bg-black-700"
+            className="text-sm px-2 py-1 rounded bg-black-100 hover:bg-black-200 dark:hover:bg-black-700 sm:ml-8 ml-0"
+            
           >
             <option value="en">English</option>
             <option value="sk">Slovak</option>
