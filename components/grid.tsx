@@ -3,7 +3,7 @@
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { useNavItems } from "@/data";
 
-export const Grid = () => {
+const Grid = () => {
 
   const navItems = useNavItems()
 
@@ -17,3 +17,5 @@ export const Grid = () => {
     </section>
   );
 };
+
+export default Grid;

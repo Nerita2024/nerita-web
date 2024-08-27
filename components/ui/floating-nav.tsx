@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -13,7 +14,7 @@ type FloatingNavProps = {
   className?: string;
 };
 
-export const FloatingNav = ({ className }: FloatingNavProps) => {
+const FloatingNav = ({ className }: FloatingNavProps) => {
   const navItems = useNav(); // Moved useNav hook inside the component
   const { scrollY } = useScroll();
   const router = useRouter();
@@ -103,3 +104,6 @@ export const FloatingNav = ({ className }: FloatingNavProps) => {
     </AnimatePresence>
   );
 };
+
+// Disable SSR for this component
+export default dynamic(() => Promise.resolve(FloatingNav), { ssr: false });

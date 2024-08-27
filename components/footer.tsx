@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Clients } from "@/components/clients";
 import { Suspense } from "react";
 
-export const Footer = () => {
+const Footer = () => {
   const { t } = useTranslation();
 
   return (
@@ -83,3 +83,5 @@ export const Footer = () => {
     </Suspense>
   );
 };
+
+export default Footer;

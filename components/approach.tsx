@@ -5,7 +5,7 @@ import { FocusCards } from "./ui/focus-cards";
 import { useTranslation } from 'react-i18next';
 import { Suspense } from "react";
 
-export const Approach = () => {
+const Approach = () => {
   const { t } = useTranslation();
 
   const cards = [
@@ -102,3 +102,5 @@ export const Icon = ({ className, ...props }: any) => {
     </svg>
   );
 };
+
+export default Approach

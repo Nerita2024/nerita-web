@@ -1,3 +1,4 @@
+// components/Experience.tsx
 "use client"; // Mark this as a Client Component
 
 import { useRouter } from 'next/navigation';
@@ -14,7 +15,7 @@ interface ExperienceItem {
   thumbnail: string;
 }
 
-export const Experience = () => {
+const Experience = () => {
   const router = useRouter();
   const workExperience = useWorkExperience(); 
 
@@ -72,3 +73,5 @@ export const Experience = () => {
     </Suspense>
   );
 };
+
+export default Experience

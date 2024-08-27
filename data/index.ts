@@ -234,7 +234,7 @@ export const useTestimonials = () => {
 };
 
 
-export const technologies = [
+export const technologiesList = [
   {
     id: 1,
     name: "Docker",

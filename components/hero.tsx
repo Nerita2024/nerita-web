@@ -1,3 +1,4 @@
+// components/Hero.tsx
 "use client";
 
 import Link from "next/link";
@@ -8,7 +9,7 @@ import { MagicButton } from "@/components/ui/magic-button";
 import { useTranslation } from 'react-i18next';
 import { Suspense } from "react";
 
-export const Hero = () => {
+const Hero = () => {
   const { t } = useTranslation();
 
   return (
@@ -50,3 +51,5 @@ export const Hero = () => {
     </div>
   );
 };
+
+export default Hero;
