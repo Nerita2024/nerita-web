@@ -1,9 +1,11 @@
-"use client";
+"use client"
 
-import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import { NextPage } from 'next';
+import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 
-const ExperienceDetail: NextPage = () => {
+const ExperienceDetailContent: NextPage = () => {
   const searchParams = useSearchParams();
   const id = searchParams.get('id') ?? '';
   const title = searchParams.get('title') ?? '';
@@ -14,9 +16,23 @@ const ExperienceDetail: NextPage = () => {
     <div>
       <h1>{title}</h1>
       <p>{desc}</p>
-      {thumbnail && <img src={thumbnail} alt={title} />}
+      {thumbnail && (
+        <Image
+          src={thumbnail}
+          alt={title}
+          width={500}  // Specify the width you want
+          height={300} // Specify the height you want
+          layout="responsive" // Use responsive layout or another layout depending on your needs
+        />
+      )}
     </div>
   );
 };
+
+const ExperienceDetail: NextPage = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <ExperienceDetailContent />
+  </Suspense>
+);
 
 export default ExperienceDetail;

@@ -85,13 +85,14 @@
     "three-globe": "^2.31.0"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^14.2.6",
     "@types/next": "^8.0.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-icons": "^2.2.7",
     "@types/react-lottie": "^1.2.10",
-    "eslint": "^8",
+    "eslint": "^8.57.0",
     "eslint-config-next": "14.2.3",
     "eslint-plugin-unused-imports": "^3.2.0",
     "postcss": "^8",
