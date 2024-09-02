@@ -11,18 +11,18 @@ const Approach = () => {
   const cards = [
     {
       title: t("services.software-title"),
-      src: "/approach_1.png",
+      src: "/our_services_2.webp",
       description: t("services.software-description")
     },
     {
       title: t("services.web-title"),
-      src: "/approach_2.png",
-      description: t("services.web-title")
+      src: "/our_services_1.webp",
+      description: t("services.web-description")
     },
     {
       title: t("services.tech-title"),
-      src: "/approach_3.jpg",
-      description: t("services.tech-title")
+      src: "/our_services_3.webp",
+      description: t("services.tech-description")
     },
   ];
 
