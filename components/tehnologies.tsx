@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { technologiesList } from "@/data";
 import { useTranslation } from 'react-i18next';
 import { Suspense } from 'react';
