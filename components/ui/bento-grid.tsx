@@ -128,7 +128,7 @@ export const BentoGridItem = ({
             {description}
           </div>
 
-          <div className="z-10 max-w-96  text-lg font-bold lg:text-3xl">
+          <div className="z-10 max-w-96  text-lg font-bold lg:text-3xl" style={{zIndex: 9998}}>
             {title}
           </div>
 

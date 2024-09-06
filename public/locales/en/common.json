@@ -20,14 +20,14 @@
   "workExperience": {
     "title-1": "Our",
     "title-2": "work experience",
-    "appolon-title": "Apollon Insurance system",
-    "appolon-description": "The solution covers key processes in investment life insurance - from product definition through contract management, data transmission to accounting, and complex reporting for the national regulator.",
-    "innovation-title": "Inovation",
-    "innovation-description": "Integration of AI options into the SW solution",
-    "cloud-infrastrucutre-title": "Cloud infrastructure",
-    "cloud-infrastrucutre-description": "We deploy the solution on cloud infrastructure",
-    "client-portal-title": "Client portal",
-    "client-portal-description": "A simple look at clients porducts. Prognosis of insurance development and invested funds"
+    "appolon-title": "Insurance",
+    "appolon-description": "Our insurance solutions cover all the key points in investment life insurance: product definition, sales, underwriting, client and contract management, data transmission, accounting, complex reporting for various audience, including the national regulator.",
+    "innovation-title": "Innovation",
+    "innovation-description": "We keep our eyes open to current trends and technologies. For instance, we can integrate our solutions with the state-of-the-art AI services.",
+    "cloud-infrastrucutre-title": "Infrastructure",
+    "cloud-infrastrucutre-description": "Our applications and services are ready for deployment within a cloud infrastructure. Our customers can thus benefit from the hardware independence only a cloud can provide.",
+    "client-portal-title": "Interaction and interoperability",
+    "client-portal-description": "We aim to provide solutions that are easy and fun to work with. Our customers can benefit from our experience with cross-system integration on a worldwide scale."
   },
   "technologies": {
     "title": "Technologies",

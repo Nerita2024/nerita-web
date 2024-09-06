@@ -240,60 +240,70 @@ export const technologiesList = [
     name: "Docker",
     img: "/docker-mark-blue.svg",
     nameImg: "/docker-mark-blue.svg",
+    designation: "Docker"
   },
   {
     id: 2,
     name: "react",
     img: "/react-js-icon.svg",
     nameImg: "/react-js-icon.svg",
+    designation: "ReactJS"
   },
   {
     id: 3,
     name: "react-native",
     img: "/react-native-1.svg",
     nameImg: "/react-native-1.svg",
+    designation: "React Native"
   },
   {
     id: 4,
     name: "postgree",
     img: "/postgresql-logo.svg",
     nameImg: "/postgresql-logo.svg",
+    designation: "PostgreeSQL"
   },
   {
     id: 5,
     name: "elasticsearch",
     img: "/es-logo.svg",
     nameImg: "/es-logo.svg",
+    designation: "Elastic Search"
   },
   {
     id: 6,
     name: "digital-ocean",
     img: "/digital-ocean-logo.svg",
     nameImg: "/digital-ocean-logo.svg",
+    designation: "Digital Ocean"
   },
   {
     id: 7,
     name: "laravel",
     img: "/laravel-logo.svg",
     nameImg: "/laravel-logo.svg",
+    designation: "Laravel"
   },
   {
     id: 8,
     name: "aws",
     img: "/aws-logo(2).png",
     nameImg: "/aws-logo.svg",
+    designation: "AWS"
   },
   {
     id: 9,
     name: "tailwind",
     img: "/tailwind-logo.svg",
     nameImg: "/tailwind-logo.svg",
+    designation: "Tailwind"
   },
   {
     id: 10,
     name: "nodejs",
     img: "/nodejs-logo.svg",
     nameImg: "/nodejs-logo.svg",
+    designation: "NodeJS"
   },
 ] as const;
 

@@ -2,9 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
-import Link from "next/link";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { useNav } from "@/data";
 import { cn } from "@/lib/utils";
 import i18n from '../../i18n';
@@ -15,15 +13,13 @@ type FloatingNavProps = {
 };
 
 const FloatingNav = ({ className }: FloatingNavProps) => {
-  const navItems = useNav(); // Moved useNav hook inside the component
+  const navItems = useNav();
   const { scrollY } = useScroll();
-  const router = useRouter();
 
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [selectedLanguage, setSelectedLanguage] = useState("en"); // Default to English
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
 
-  // Initialize language on component mount
   useEffect(() => {
     const storedLang = localStorage.getItem('lang') || 'en';
     setSelectedLanguage(storedLang);
@@ -35,11 +31,7 @@ const FloatingNav = ({ className }: FloatingNavProps) => {
       if (current < 50) {
         setVisible(true);
       } else {
-        if (current > lastScrollY) {
-          setVisible(false); // Scrolling down
-        } else {
-          setVisible(true); // Scrolling up
-        }
+        setVisible(current <= lastScrollY);
       }
       setLastScrollY(current);
     }
@@ -51,30 +43,47 @@ const FloatingNav = ({ className }: FloatingNavProps) => {
     window.location.reload();
   };
 
+  const handleNavItemClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
+    e.preventDefault();
+    const element = document.querySelector(link);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <AnimatePresence mode="wait">
       <motion.nav
         initial={{ opacity: 1, y: -100 }}
         animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
         transition={{ duration: 0.2 }}
+        style={{ zIndex: 9999 }}
         className={cn(
           "fixed inset-x-0 top-10 z-[5000] mx-auto flex max-w-fit items-center justify-center space-x-4 rounded-3xl border border-white/[0.2] bg-black-100 px-3 py-5 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]",
           className
         )}
       >
-        <Link href="https://nerita-web.vercel.app/">
+        <a href="https://nerita-web.vercel.app/">
           <div className="flex items-center space-x-4 sm:mr-8 mr-0">
+            {/* Desktop Logo */}
             <img
-              src="/nerita_logo.png" // Path to your image in the public folder
+              src="/nerita_logo.png"
               alt="Logo"
-              className="h-8 w-auto" // Adjust size as needed
+              className="h-8 w-auto hidden sm:block" // Visible on screens larger than 'sm'
+            />
+            {/* Mobile Logo */}
+            <img
+              src="/nerita_logo_no_text.svg" // Path to your mobile version logo
+              alt="Mobile Logo"
+              className="h-8 w-auto sm:hidden" // Visible on screens smaller than 'sm'
             />
           </div>
-        </Link>
+        </a>
         {navItems.map((navItem, idx) => (
-          <Link
+          <a
             key={`link-${idx}`}
             href={navItem.link}
+            onClick={(e) => handleNavItemClick(e, navItem.link)}
             className={cn(
               "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
             )}
@@ -89,7 +98,7 @@ const FloatingNav = ({ className }: FloatingNavProps) => {
               />
             </span>
             <span className="hidden sm:block text-sm">{navItem.name}</span>
-          </Link>
+          </a>
         ))}
 
         <div className="relative">
@@ -97,7 +106,6 @@ const FloatingNav = ({ className }: FloatingNavProps) => {
             value={selectedLanguage}
             onChange={(e) => handleChangeLanguage(e.target.value)}
             className="text-sm px-2 py-1 rounded bg-black-100 hover:bg-black-200 dark:hover:bg-black-700 sm:ml-8 ml-0"
-            
           >
             <option value="en">English</option>
             <option value="sk">Slovak</option>
@@ -108,5 +116,4 @@ const FloatingNav = ({ className }: FloatingNavProps) => {
   );
 };
 
-// Disable SSR for this component
 export default dynamic(() => Promise.resolve(FloatingNav), { ssr: false });

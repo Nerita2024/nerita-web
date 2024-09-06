@@ -20,14 +20,14 @@
   "workExperience": {
     "title-1": "Naša",
     "title-2": "pracovná skúsenosť",
-      "appolon-title": "Apollon poistný systém",
-      "appolon-description": "Riešenie pokrýva kľúčové procesy v investičnom životnom poistení - od definovania produktu cez správu zmlúv, prenos údajov až po účtovníctvo a komplexné reportovanie pre národného regulátora.",
+      "appolon-title": "Poistenie",
+      "appolon-description": "Naše poistné riešenia pokrývajú všetky kľúčové body v investičnom životnom poistení: definícia produktu, predaj, underwriting, správa klientov a zmlúv, prenos dát, účtovníctvo a komplexné reportovanie pre rôzne publikum, vrátane národného regulátora.",
       "innovation-title": "Inovácie",
-      "innovation-description": "Integrácia AI možností do SW riešenia",
-      "cloud-infrastrucutre-title": "Cloudová infraštruktúra",
-      "cloud-infrastrucutre-description": "Nasadzujeme riešenie na cloudovú infraštruktúru",
-      "client-portal-title": "Klientsky portál",
-      "client-portal-description": "Jednoduchý pohľad na produkty klientov. Prognóza vývoja poistenia a investovaných fondov"
+      "innovation-description": "Sledujeme aktuálne trendy a technológie. Napríklad vieme integrovať naše riešenia s najmodernejšími AI službami.",
+      "cloud-infrastructure-title": "Infraštruktúra",
+      "cloud-infrastructure-description": "Naše aplikácie a služby sú pripravené na nasadenie v rámci cloudovej infraštruktúry. Naši zákazníci tak môžu profitovať z hardvérovej nezávislosti, ktorú poskytuje iba cloud.",
+      "client-portal-title": "Interakcia a interoperabilita",
+      "client-portal-description": "Naším cieľom je poskytovať riešenia, s ktorými je jednoduché a zábavné pracovať. Naši zákazníci môžu využiť naše skúsenosti s integráciou medzi systémami na celosvetovej úrovni."
   },
   "technologies": {
     "title": "Technológie",

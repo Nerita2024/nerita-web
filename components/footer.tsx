@@ -46,8 +46,7 @@ const Footer = () => {
         <div id="footer" className="relative z-[999] mt-16 flex flex-col items-center justify-between gap-8 md:flex-row md:gap-12 px-4 md:px-8">
           <p className="text-sm font-light md:text-base md:font-normal text-center md:text-left">
             {t("footer.address")} Panská 9, 811 01 Bratislava, Slovakia
-            <br />
-            {t("footer.phone")} +421 911 065 505
+            
             <br />
             {t("footer.email")} nerita@nerita.eu
             <br />
