@@ -130,7 +130,7 @@ export const useWorkExperience = () => {
         },
         {
           id: 3,
-          title: t("workExperience.cloud-infrastrucutre-title"),
+          title: t("workExperience.cloud-infrastructure-title"),
           desc: t("workExperience.cloud-infrastructure-description"),
           className: "md:col-span-2",
           thumbnail: "/exp3.svg",
