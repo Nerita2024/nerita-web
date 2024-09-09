@@ -131,7 +131,7 @@ export const useWorkExperience = () => {
         {
           id: 3,
           title: t("workExperience.cloud-infrastrucutre-title"),
-          desc: t("workExperience.cloud-infrastrucutre-description"),
+          desc: t("workExperience.cloud-infrastructure-description"),
           className: "md:col-span-2",
           thumbnail: "/exp3.svg",
         },
